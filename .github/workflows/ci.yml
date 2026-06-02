@@ -20,7 +20,7 @@ jobs:
       - name: Check the links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --max-concurrency 1 -v content/*.md
+          args: --max-concurrency 1 -v --exclude "linkedin.com" content/*.md
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
