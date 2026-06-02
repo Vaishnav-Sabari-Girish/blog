@@ -12,7 +12,7 @@ After one too many sessions wrestling with archaic keybindings and unreadable, u
 
 Enter [**ComChan**](https://github.com/Vaishnav-Sabari-Girish/ComChan).
 
-<!-- more -->
+<q>Wait, aren't there already a dozen serial monitors out there? Why build another one from scratch?</q>
 
 ## The Problem with the Classics
 
@@ -24,6 +24,7 @@ My main pain points were:
 3. **Clunky UX:** I live in a heavily customized, terminal-centric environment (Zsh, Neovim (btw)). I wanted a serial monitor that felt like a modern CLI tool, not a relic from the 90s.
 4. **Lack of a good Serial Plotter**: Well although the Arduino Serial Plotter works (kinda), there was no way to export the plots unless I used a tool like **BetterSerialPlotter**. 
 5. **Telemetry viewer**: When working with Inertial Measure Units (IMU's) to view the orientation (Pitch, Roll and Yaw), I had to rely on 3rd party tools for the 3D viewing. 
+
 
 ## Designing Comchan
 
@@ -41,6 +42,8 @@ When working with rust, the default choice for TUI's is obviously [`ratatui`](ht
 ## The Payoff
 
 ComChan now sits front and center in my daily workflow. It has native colorized output, making it trivial to visually parse `INFO`, `WARN`, and `ERROR` logs. It handles window resizing gracefully without mangling the history buffer, and the keybindings actually make sense (Cause there aren't any. LOLL!! 😅).
+
+<q>But honestly, was it really worth the time to reinvent the wheel?</q>
 
 Reinventing the wheel isn't always the most efficient use of time, but when you spend hours every day looking at serial output, having a tool tailored exactly to your workflow pays dividends. 
 

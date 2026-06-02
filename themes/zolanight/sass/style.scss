@@ -172,6 +172,31 @@ img {
   color: var(--green-color);
 }
 
+g {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+/* Custom Question / Blockquote Tag */
+/* Custom Question / Blockquote Tag */
+q {
+  display: block;
+  quotes: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--yellow-color);
+  box-shadow: 0 0 12px var(--yellow-color), inset 0 0 4px rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin: 1.5rem 0;
+  color: var(--fg-color);
+}
+
+q::before {
+  content: "🜁: ";
+  margin-right: 8px;
+}
+
 /* Custom styles for the blog post list */
 ul.blog {
   list-style: none; /* Remove default bullet points */
