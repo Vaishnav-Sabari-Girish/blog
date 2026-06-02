@@ -1,22 +1,18 @@
 {% set cap_left = left_caption | default(value="") %}
 {% set cap_right = right_caption | default(value="") %}
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-  
-  <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    <!-- NOTE THE get_url() WRAPPING left_src -->
-    <img src="{{ get_url(path=left_src) }}" alt="{{ left_alt | default(value='') }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+<div class="image-row">
+  <figure>
+    <img src="{{ get_url(path=left_src) }}" alt="{{ left_alt | default(value='') }}">
     {% if cap_left %}
-      <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.8; margin-top: 0.5rem;">{{ cap_left }}</figcaption>
+      <figcaption>{{ cap_left }}</figcaption>
     {% endif %}
   </figure>
 
-  <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    <!-- NOTE THE get_url() WRAPPING right_src -->
-    <img src="{{ get_url(path=right_src) }}" alt="{{ right_alt | default(value='') }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+  <figure>
+    <img src="{{ get_url(path=right_src) }}" alt="{{ right_alt | default(value='') }}">
     {% if cap_right %}
-      <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.8; margin-top: 0.5rem;">{{ cap_right }}</figcaption>
+      <figcaption>{{ cap_right }}</figcaption>
     {% endif %}
   </figure>
-
 </div>
