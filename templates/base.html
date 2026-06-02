@@ -25,7 +25,6 @@
     {% endif %}
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
     {% if config.extra.zolanight.google_analytics_id %}
-    <!-- Delayed Google Analytics loading -->
     <script>
       const loadGtag = () => {
         window.dataLayer = window.dataLayer || [];
@@ -45,29 +44,93 @@
     </script>
     {% endif %}
     {% block extra_head %}{% endblock extra_head %}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+    <script src="{{ get_url(path='search_index.en.js') }}"></script>
   </head>
   <body class="theme-{{ config.extra.zolanight.theme | default(value="tokyonight") }}">
     {% set root_section = get_section(path="_index.md") %}
     <header>
-      <nav>
-        <a href="{{ config.base_url }}">/home/</a>
+      <nav style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; width: 100%;">
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+          <a href="{{ config.base_url }}">/home/</a>
+          <a href="https://github.com/Vaishnav-Sabari-Girish">/github/</a>
+          <a href="https://vaishnav-sabari-girish.github.io">/about/</a>
+          <a href="https://www.linkedin.com/in/vaishnav-sabari-girish/">/linkedin/</a>
+          <a href="https://elk.zone/defcon.social/@vaishnav">/mastodon/</a>
+          <a href="https://github.com/Vaishnav-Sabari-Girish/blog">/source/</a>
 
-        {# Render subsections #}
-        {% for subsection_path in root_section.subsections %}
-        {% set subsection = get_section(path=subsection_path) %}
-        <a href="{{ subsection.permalink }}">{{ subsection.permalink | replace(from=config.base_url, to="") }}</a>
-        {% endfor %}
+          {# Render subsections #}
+          {% for subsection_path in root_section.subsections %}
+          {% set subsection = get_section(path=subsection_path) %}
+          <a href="{{ subsection.permalink }}">{{ subsection.permalink | replace(from=config.base_url, to="") }}</a>
+          {% endfor %}
+        </div>
 
-        {# Render pages at the root #}
-        {% for page in root_section.pages %}
-        <a href="{{ page.permalink }}">{{ page.permalink | replace(from=config.base_url, to="") }}</a>
-        {% endfor %}
+        <input type="text" id="search-input" placeholder="Search logs..." style="padding: 0.2rem 0.5rem; background: rgba(0,0,0,0.2); border: 1px solid var(--text-main); color: var(--text-main); border-radius: 4px; font-family: inherit; width: 200px;">
+        
       </nav>
     </header>
     <hr>
+    
+    <div id="search-results" style="display: none; padding: 1rem; margin-bottom: 1rem; border: 1px solid var(--text-main); border-radius: 4px; background: rgba(0,0,0,0.1);">
+      <h3 style="margin-top: 0; font-size: 1.1em;">Search Results</h3>
+      <ul id="search-results-list" style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 0;"></ul>
+    </div>
+
     <main>
       {% block content %}{% endblock content %}
     </main>
     <hr>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById("search-input");
+        const searchResultsContainer = document.getElementById("search-results");
+        const searchResultsList = document.getElementById("search-results-list");
+
+        // Ensure the index is loaded before allowing search
+        if (!window.searchIndex) return;
+
+        // Initialize Elasticlunr with your index
+        const index = elasticlunr.Index.load(window.searchIndex);
+
+        searchInput.addEventListener("input", function() {
+          const query = this.value.trim();
+
+          if (query.length < 2) {
+            searchResultsContainer.style.display = "none";
+            return;
+          }
+
+          // Perform the search
+          const results = index.search(query, {
+            bool: "OR",
+            expand: true
+          });
+
+          // Clear previous results
+          searchResultsList.innerHTML = "";
+
+          if (results.length === 0) {
+            searchResultsContainer.style.display = "block";
+            searchResultsList.innerHTML = "<li>No results found.</li>";
+            return;
+          }
+
+          // Display new results
+          searchResultsContainer.style.display = "block";
+          results.forEach(function(result) {
+            const doc = index.documentStore.getDoc(result.ref);
+            const li = document.createElement("li");
+            li.style.marginBottom = "0.5rem";
+            // Uses the actual document URL and title
+            li.innerHTML = `<a href="${doc.id}">${doc.title}</a>`;
+            searchResultsList.appendChild(li);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
