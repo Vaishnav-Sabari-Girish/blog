@@ -1,5 +1,5 @@
 +++
-title = "Why I Built Comchan Instead of Using Minicom"
+title = "Why I Built Comchan"
 date = 2026-06-02
 
 [taxonomies]
