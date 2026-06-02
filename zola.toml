@@ -9,6 +9,10 @@ build_search_index = true
 
 theme = "zolanight"
 
+taxonomies = [
+    { name = "tags" }
+]
+
 [markdown]
 
 [markdown.highlighting]
