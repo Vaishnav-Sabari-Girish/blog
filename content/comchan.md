@@ -47,7 +47,7 @@ ComChan now sits front and center in my daily workflow. It has native colorized 
 
 Reinventing the wheel isn't always the most efficient use of time, but when you spend hours every day looking at serial output, having a tool tailored exactly to your workflow pays dividends. 
 
-If you want to poke around the source code or try it out for your own embedded projects, you can check out the repository on my [GitHub](https://github.com/Vaishnav-Sabari-Girish).
+If you want to poke around the source code or try it out for your own embedded projects, you can check out the repository on my [GitHub](https://github.com/Vaishnav-Sabari-Girish/ComChan).
 
 
 <br>
