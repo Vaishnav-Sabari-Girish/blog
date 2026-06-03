@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v6
+
       - name: Check the links
         uses: lycheeverse/lychee-action@v2
         with:
@@ -26,15 +27,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   spelling-checker:
-    name: Check spelling
+    name: Check typos
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v6
-      - name: Check spelling mistakes
-        uses: codespell-project/actions-codespell@master
+
+      - name: Run typos checker
+        uses: crate-ci/typos@master
         with:
-          check_filenames: true
-          check_hidden: true
-          path: content
-          ignore_words_file: .codespellignore
+          files: content
