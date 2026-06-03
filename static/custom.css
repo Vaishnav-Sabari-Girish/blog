@@ -1,0 +1,53 @@
+/* static/custom.css */
+/* Overriding Zolanight's Tokyonight palette with Nord */
+
+:root {
+  /* Backgrounds (Nord Polar Night) */
+  --bg-main: #2e3440;       /* nord0 - Main background */
+  --bg-secondary: #3b4252;  /* nord1 - Secondary background (cards/menus) */
+  --bg-tertiary: #434c5e;   /* nord2 - Hover states */
+  --bg-quaternary: #4c566a; /* nord3 - Borders/separators */
+
+  /* Text (Nord Snow Storm) */
+  --text-main: #d8dee9;     /* nord4 - Primary text */
+  --text-secondary: #e5e9f0;/* nord5 - Secondary text/Headings */
+  --text-muted: #eceff4;    /* nord6 - High contrast text */
+
+  /* Accents (Nord Frost & Aurora) */
+  --accent-1: #88c0d0;      /* nord8 - Primary accent (Links) */
+  --accent-2: #81a1c1;      /* nord9 - Secondary accent */
+  --accent-3: #5e81ac;      /* nord10 - Tertiary accent */
+  
+  --success: #a3be8c;       /* nord14 - Green */
+  --warning: #ebcb8b;       /* nord13 - Yellow */
+  --error: #bf616a;         /* nord11 - Red */
+  --info: #b48ead;          /* nord15 - Purple */
+}
+
+/* Specific overrides to ensure the theme picks up the new colors */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+a {
+  color: var(--accent-1);
+}
+
+a:hover {
+  color: var(--accent-2);
+}
+
+hr {
+  border-top: 1px solid var(--bg-quaternary);
+}
+
+input#search-input {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--bg-quaternary) !important;
+}
+
+#search-results {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--bg-quaternary) !important;
+}
