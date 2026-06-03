@@ -52,7 +52,9 @@ If you want to poke around the source code or try it out for your own embedded p
 
 <br>
 
-# Some Images
+# Some Images 
+
+You can click on the image to view it fully.
 
 <br>
 

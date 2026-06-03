@@ -47,6 +47,70 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
     <script src="{{ get_url(path='search_index.en.js') }}"></script>
+
+    <style>
+      /* Lightbox Modal Styles */
+      .lightbox-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        padding-top: 50px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(15, 15, 20, 0.95); /* Matches TokyoNight vibe */
+        backdrop-filter: blur(5px);
+      }
+      .lightbox-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      }
+      #lightbox-caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: var(--text-main);
+        padding: 15px 0;
+        font-size: 1.1em;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .lightbox-close:hover {
+        color: #aaa;
+      }
+      .zoomable:hover {
+        opacity: 0.8;
+      }
+      /* Responsive Image Grid */
+      .responsive-image-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default to 1 column (Stacked) for mobile */
+        gap: 1rem;
+      }
+      
+      /* Switch to 2 columns on screens wider than 768px (Tablets/Desktops) */
+      @media (min-width: 768px) {
+        .responsive-image-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+
   </head>
   <body class="theme-{{ config.extra.zolanight.theme | default(value="tokyonight") }}">
     {% set root_section = get_section(path="_index.md") %}
@@ -132,5 +196,53 @@
         });
       });
     </script>
+<!-- Lightbox HTML Structure -->
+    <div id="image-lightbox" class="lightbox-modal">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+      <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Lightbox JavaScript Logic -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("image-lightbox");
+        const modalImg = document.getElementById("lightbox-img");
+        const captionText = document.getElementById("lightbox-caption");
+        const closeBtn = document.getElementsByClassName("lightbox-close")[0];
+        
+        // Find all images with the 'zoomable' class
+        const images = document.querySelectorAll(".zoomable");
+
+        images.forEach(img => {
+          img.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            // Use the alt text as the caption, or default to nothing
+            captionText.innerHTML = this.alt || "";
+          });
+        });
+
+        // Close when clicking the 'x'
+        closeBtn.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // Close when clicking anywhere outside the image
+        modal.onclick = function(e) {
+          if (e.target !== modalImg) {
+            modal.style.display = "none";
+          }
+        }
+        
+        // Close when pressing the Escape key
+        document.addEventListener('keydown', function(event) {
+          if (event.key === "Escape" && modal.style.display === "block") {
+            modal.style.display = "none";
+          }
+        });
+      });
+    </script>
+
   </body>
 </html>
