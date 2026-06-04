@@ -70,15 +70,18 @@ right_caption="Serial Plotter view"
 
 <br>
 
-{{ image_row(
-left_src="/comchan/export.svg", 
-left_alt="Exported Output", 
-left_caption="Exported SVG output",
 
-right_src="/comchan/braille_telemetry.png",
-right_alt = "Braille Telemetry",
-right_caption="Braille 3D Telemetry"
-) }}
+{{ image_row(
+
+left_src="/comchan/braille_telemetry.png",
+left_alt="Braille Telemetry",
+left_caption="Braille 3D Telemetry"
+
+right_src="/comchan/tetrahedron.png",
+right_alt="Braille Tetrahedron",
+right_caption="Tetrahedron Braille"
+)}}
+
 
 <br>
 
@@ -91,3 +94,16 @@ right_src="/comchan/completions.png",
 right_alt = "Shell completions",
 right_caption="Shell completions"
 )}}
+
+<br>
+
+{{ image_row(
+left_src="/comchan/export.svg", 
+left_alt="Exported Output", 
+left_caption="Exported SVG output",
+
+right_src="/comchan/dark_comchan.svg",
+right_alt="Dark Mode export",
+right_caption="Dark Mode SVG export"
+) }}
+
