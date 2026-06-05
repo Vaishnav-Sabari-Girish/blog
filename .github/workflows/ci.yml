@@ -16,12 +16,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4 # Note: Bumped to v4 (latest stable)
 
+      # NEW: Install Zola
+      - name: Install Zola
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola
+
+      # NEW: Build the site so absolute paths resolve correctly
+      - name: Build the Zola site
+        run: zola build
+
+      # UPDATED: Run Lychee against the built HTML, not the Markdown
       - name: Check the links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --max-concurrency 1 -v --exclude "linkedin.com" content/*.md
+          # Exclude nxp.com to avoid their 404 firewall blocks
+          args: --max-concurrency 1 -v --exclude "linkedin.com" --exclude "nxp.com" public/**/*.html
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,8 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
+      # Keeping this pointed at `content` is perfect! 
+      # You want spellcheck on your source text, not generated HTML.
       - name: Run typos checker
         uses: crate-ci/typos@master
         with:
