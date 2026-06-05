@@ -16,7 +16,7 @@ taxonomies = [
 [markdown]
 
 [markdown.highlighting]
-theme = "catppuccin-mocha"
+theme = "Nord"
 
 [extra]
 # Put all your custom variables here

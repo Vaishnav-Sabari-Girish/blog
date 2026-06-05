@@ -113,6 +113,82 @@
         }
       }
     </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const blockquotes = document.querySelectorAll("blockquote");
+        
+        blockquotes.forEach(bq => {
+          const firstP = bq.querySelector("p");
+          if (!firstP) return;
+          
+          // Check if the paragraph starts with a GitHub alert tag
+          const match = firstP.innerHTML.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION|DANGER)\]/i);
+          
+          if (match) {
+            const type = match[1].toLowerCase();
+            
+            // Add the base class and the specific type class
+            bq.classList.add("admonition", type);
+            
+            // Strip out the [!TYPE] text and the `<br>` that usually follows it
+            firstP.innerHTML = firstP.innerHTML.replace(/^\[!.*?\](<br>|\n)?/, '');
+            
+            // Create a cool title element
+            const title = document.createElement("div");
+            title.className = "admonition-title";
+            // Capitalize the first letter for the display title
+            title.innerText = type.charAt(0).toUpperCase() + type.slice(1);
+            
+            // Insert the title at the top of the blockquote
+            bq.insertBefore(title, bq.firstChild);
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Zola wraps syntax-highlighted code in <pre data-lang="..."> blocks
+        const codeBlocks = document.querySelectorAll("pre");
+
+        codeBlocks.forEach(function(block) {
+          // 1. Make the pre tag position relative so the button can be absolutely positioned inside it
+          block.style.position = "relative";
+
+          // 2. Create the button element
+          const button = document.createElement("button");
+          button.className = "copy-code-button";
+          // Use a simple clipboard icon (SVG)
+          button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+
+          // 3. Add the click event listener
+          button.addEventListener("click", function() {
+            // Find the actual <code> element inside the <pre> block
+            const code = block.querySelector("code");
+            if (!code) return;
+
+            // Copy the text content to the clipboard
+            navigator.clipboard.writeText(code.innerText).then(function() {
+              // Show a temporary "Copied!" state
+              const originalHTML = button.innerHTML;
+              button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+              button.classList.add("copied");
+
+              // Revert the button after 2 seconds
+              setTimeout(function() {
+                button.innerHTML = originalHTML;
+                button.classList.remove("copied");
+              }, 2000);
+            }).catch(function(err) {
+              console.error("Failed to copy code: ", err);
+            });
+          });
+
+          // 4. Append the button to the <pre> block
+          block.appendChild(button);
+        });
+      });
+    </script>
 
   </head>
   <body class="theme-{{ config.extra.zolanight.theme | default(value="tokyonight") }}">

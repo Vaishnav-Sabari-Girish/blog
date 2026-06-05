@@ -51,3 +51,108 @@ input#search-input {
     background-color: var(--bg-secondary) !important;
     border-color: var(--bg-quaternary) !important;
 }
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95em;
+}
+
+th, td {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--bg-quaternary);
+    text-align: left;
+}
+
+/* Header Row Styling */
+th {
+    background-color: var(--bg-secondary);
+    color: var(--accent-1);
+    font-weight: bold;
+}
+
+/* Subtle alternating row colors for readability */
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect on rows */
+tr:hover {
+    background-color: var(--bg-tertiary);
+    transition: background-color 0.2s ease;
+}
+
+/* GitHub-Style Admonitions / Callouts */
+.admonition {
+    border-left: 4px solid var(--bg-quaternary);
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1rem 1rem 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.admonition-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1em;
+}
+
+/* Removes the extra margin at the bottom of the last paragraph */
+.admonition p:last-child {
+    margin-bottom: 0;
+}
+
+/* Note: Nord Blue */
+.admonition.note { border-left-color: var(--accent-1); }
+.admonition.note .admonition-title { color: var(--accent-1); }
+
+/* Warning: Nord Yellow */
+.admonition.warning { border-left-color: var(--warning); }
+.admonition.warning .admonition-title { color: var(--warning); }
+
+/* Danger/Caution: Nord Red */
+.admonition.danger, .admonition.caution { border-left-color: var(--error); }
+.admonition.danger .admonition-title, .admonition.caution .admonition-title { color: var(--error); }
+
+/* Tip/Important: Nord Green */
+.admonition.tip, .admonition.important { border-left-color: var(--success); }
+.admonition.tip .admonition-title, .admonition.important .admonition-title { color: var(--success); }
+
+
+/* Copy Code Button Styling */
+.copy-code-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--bg-tertiary);
+    color: var(--text-muted);
+    border: 1px solid var(--bg-quaternary);
+    border-radius: 4px;
+    padding: 0.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Show the button when the user hovers over the <pre> block */
+pre:hover .copy-code-button {
+    opacity: 1;
+}
+
+.copy-code-button:hover {
+    background-color: var(--bg-secondary);
+    color: var(--accent-1);
+    border-color: var(--accent-1);
+}
+
+/* Styling for the temporary "Copied" state */
+.copy-code-button.copied {
+    background-color: var(--success);
+    color: var(--bg-main);
+    border-color: var(--success);
+}
