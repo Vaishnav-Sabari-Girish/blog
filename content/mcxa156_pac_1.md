@@ -11,7 +11,7 @@ tags = ["rust", "pac", "embedded", "nxp"]
 > So just in case I have added a [definitions](#definitions) section at the bottom. 
 > Or you can click the footnotes next to some words to view its definition.
 
-I recently got my hands on the [NXP FRDM-MCXA156](https://www.nxp.com/FRDM-MCXA156) board, courtesy of the [Embedded Online Conference (EOC)](https://embeddedonlineconference.com/) pass. Naturally, my first step was to take it for a spin. Since I didn't wanna use Arduino for this (Who still uses Arduino nowadays), I selected Zephyr RTOS, since this board had out-of-the-box support for Zephyr RTOS. I used Zephyr to test the hardware and also learn Zephyr along the way. 
+I recently got my hands on the [NXP FRDM-MCXA156](https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-MCXA156?tid=vanfrdm-mcxa156) board, courtesy of the [Embedded Online Conference (EOC)](https://embeddedonlineconference.com/) pass. Naturally, my first step was to take it for a spin. Since I didn't wanna use Arduino for this (Who still uses Arduino nowadays), I selected Zephyr RTOS, since this board had out-of-the-box support for Zephyr RTOS. I used Zephyr to test the hardware and also learn Zephyr along the way. 
 
 Next, I wanted to try Embedded Rust of this board (obviously). But then I ran into a problem.
 
