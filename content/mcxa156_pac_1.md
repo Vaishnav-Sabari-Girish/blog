@@ -203,7 +203,7 @@ const PCOR: usize = 0x48 / 4;
 #[entry]
 fn main() -> ! {
     // Set up the cycle-counting delay timer
-    let cp = cortex_m::Peripherals::take().unwrap();
+    let cp = unsafe { cortex_m::Peripherals::steal() };
     let mut delay = cortex_m::delay::Delay::new(cp.SYST, 96_000_000);
 
     // --- GPIO init (unchanged) ---
