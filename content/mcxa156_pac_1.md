@@ -84,6 +84,8 @@ So during initial testing, `probe-rs` was throwing intermittent DAP fault errors
 
 {{ img(src="frdm/day_1/debugger_table.png", alt="Debugger table") }}
 
+<br>
+
 Now coming to the hurdles I faced.
 
 ### Hurdle 1: The stubborn ROM bootloader
