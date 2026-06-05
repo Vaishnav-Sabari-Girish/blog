@@ -313,6 +313,11 @@ Absolutely. The PAC is always **Zero-cost safety**. Once you understand the hard
 > [!IMPORTANT]
 > Stay tuned for Day 2
 
+
+# Result
+
+{{ video(src="frdm/day_1/led_blink.mp4", gif_mode=true) }}
+
 --- 
 <br>
 
