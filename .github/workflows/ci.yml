@@ -32,11 +32,9 @@ jobs:
       - name: Check the links
         uses: lycheeverse/lychee-action@v2
         with:
-          # Exclude nxp.com to avoid their 404 firewall blocks
-          args: --max-concurrency 1 -v --exclude "linkedin.com" --exclude "nxp.com" public/**/*.html
-          fail: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # Added your own domain to the exclude list!
+              args: --max-concurrency 1 -v --exclude "linkedin.com" --exclude "nxp.com" --exclude "vaishnav-sabari-girish.github.io" public/**/*.html
+              fail: true
 
   spelling-checker:
     name: Check typos
