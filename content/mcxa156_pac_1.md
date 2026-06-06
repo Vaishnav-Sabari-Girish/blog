@@ -310,9 +310,7 @@ Absolutely. The PAC is always **Zero-cost safety**. Once you understand the hard
 > [!NOTE]
 > This was a very long blog with a lot of code. Thank you for reading till the end. 
 
-> [!IMPORTANT]
-> Stay tuned for Day 2
-
+<br>
 
 # Result
 

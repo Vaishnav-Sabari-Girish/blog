@@ -156,3 +156,22 @@ pre:hover .copy-code-button {
     color: var(--bg-main);
     border-color: var(--success);
 }
+
+/* Single Media Centering */
+.single-media-center {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+/* Constrain the size on desktop to match the dual-grid layout */
+.single-media-center figure {
+    width: 48%; /* Matches the roughly 50% width of the grid columns */
+}
+
+/* On mobile, let it take up the full screen */
+@media (max-width: 768px) {
+    .single-media-center figure {
+        width: 100%;
+    }
+}

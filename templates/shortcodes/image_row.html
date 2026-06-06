@@ -1,21 +1,36 @@
 {% set cap_left = left_caption | default(value="") %}
 {% set cap_right = right_caption | default(value="") %}
 
-<!-- Swapped inline styles for the responsive class -->
-<div class="responsive-image-grid">
+<div {% if right_src %}class="responsive-image-grid"{% else %}class="single-media-center"{% endif %}>
   
   <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    <img src="{{ get_url(path=left_src) }}" alt="{{ left_alt | default(value='') }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+    {% if left_src is ending_with(".mp4") %}
+      <video style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" autoplay loop muted playsinline>
+        <source src="{{ get_url(path=left_src) }}" type="video/mp4">
+      </video>
+    {% else %}
+      <img src="{{ get_url(path=left_src) }}" alt="{{ left_alt | default(value='') }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+    {% endif %}
+    
     {% if cap_left %}
       <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.8; margin-top: 0.5rem;">{{ cap_left }}</figcaption>
     {% endif %}
   </figure>
 
+  {% if right_src %}
   <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    <img src="{{ get_url(path=right_src) }}" alt="{{ right_alt | default(value='') }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+    {% if right_src is ending_with(".mp4") %}
+      <video style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" autoplay loop muted playsinline>
+        <source src="{{ get_url(path=right_src) }}" type="video/mp4">
+      </video>
+    {% else %}
+      <img src="{{ get_url(path=right_src) }}" alt="{{ right_alt | default(value='') }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+    {% endif %}
+    
     {% if cap_right %}
       <figcaption style="text-align: center; font-size: 0.85em; opacity: 0.8; margin-top: 0.5rem;">{{ cap_right }}</figcaption>
     {% endif %}
   </figure>
+  {% endif %}
 
 </div>
