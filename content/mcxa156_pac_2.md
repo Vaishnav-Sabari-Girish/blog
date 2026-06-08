@@ -394,8 +394,6 @@ To wrap up:
 > [!NOTE]
 > This was a very long blog with a lot of code. Thank you for reading till the end. 
 
-> [!IMPORTANT]
-> Stay tuned for Day 3
 
 > [!NOTE]
 > For reference, here is the repository link again: <https://github.com/Vaishnav-Sabari-Girish/frdm_mcxa156_pac>
