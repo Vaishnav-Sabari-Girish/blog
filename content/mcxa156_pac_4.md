@@ -76,7 +76,7 @@ That's not the only thing. The LED stayed ON.
 
 But when I pressed SW3, the LED turned Blue, which it was supposed to do only if I press both buttons which I did not do. 
 
-<q>So was the firmware the issue then ? Like was it causing the SW3 to be set as PRESSED in teh firmware level ?</q>
+<q>So was the firmware the issue then ? Like was it causing the SW3 to be set as PRESSED in the firmware level ?</q>
 
 Yes, when I copied the polling logic from SW2 to SW3, I changed the port but forgot to update the bit-shift mask. 
 
