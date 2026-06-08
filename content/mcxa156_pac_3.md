@@ -253,9 +253,6 @@ left_caption="Button Press"
 
 <br>
 
-> [!IMPORTANT]
-> Stay tuned for Day 4
-
 > [!NOTE]
 > For reference, here is the repository link again: <https://github.com/Vaishnav-Sabari-Girish/frdm_mcxa156_pac>
 
