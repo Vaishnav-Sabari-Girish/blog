@@ -143,8 +143,6 @@ fn main() -> ! {
     let p = frdm_mcxa156_pac::Peripherals::take().unwrap();
 
     // 1. Enable Clocks for Port 1/GPIO1 (Button) and Port 3/GPIO3 (LED)
-    // NOTE: Depending on the MCXA156 register map, PORT1/GPIO1 might be in glb_cc0 instead of
-    // glb_cc1 
     p.mrcc0.mrcc_glb_cc1().modify(|_, w| {
         w.port1().enabled();
         w.gpio1().enabled();
@@ -226,7 +224,7 @@ fn main() -> ! {
 <br>
 
 > [!NOTE]
-> Port 1 (Button) lives on `CC0`/`RST0` and Port 3 lives on `CC1`/`RST1`
+> Port 1 (Button) and Port 3 (LED) live on `CC1`/`RST1`
 
 
 <br>
@@ -249,7 +247,7 @@ left_caption="Button Press"
 
 2. **SVD Files Aren't Perfect**: When `svd2rust` fails to generate friendly enum names, don't panic. Fall back to `.set_bit()` and `.clear_bit()` while referencing the reference manual.
 
-3. **Know Your Clock Domains**: Not all ports share the same clock and reset registers. On this board, `PORT1` is on `GLB_CC0` while `PORT3` is on `GLB_CC1` Copy-pasting initialization code without checking the register maps will lead to hard faults.
+3. **Know Your Clock Domains**: Not all ports share the same clock and reset registers. But in this case both the button and the LED share the same clock. On this board, `PORT1` and `PORT3` are on `GLB_CC1` Copy-pasting initialization code without checking the register maps will lead to hard faults. 
 
 4. **Don't Forget to Debounce[^2]**: Physical buttons bounce. A single press might register as dozens of rapid high/low transitions. The `cortex_m::asm::delay(96_000)` acting as a small block at the end of the loop provides a rudimentary software debounce.
 
