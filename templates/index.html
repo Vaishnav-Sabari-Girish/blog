@@ -16,11 +16,10 @@
 </section>
 
 {% if config.extra.home_list_latest_blog_posts | default(value=true) %}
-<!-- FIXED: Now pointing to the root _index.md -->
-{% set blog_section = get_section(path="_index.md") %}
-{% if blog_section %}
+
+{% if paginator %}
 <ul>
-  {% for page in blog_section.pages | slice(end=5) %}
+  {% for page in paginator.pages %}
   <li>
     <article>
       {% if page.date %}
@@ -31,9 +30,26 @@
   </li>
   {% endfor %}
 </ul>
+
+{% if paginator.previous or paginator.next %}
+  <nav class="pagination" style="margin-top: 2rem; display: flex; justify-content: space-between;">
+    <div>
+      {% if paginator.previous %}
+        <a href="{{ paginator.previous }}">« Newer Posts</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if paginator.next %}
+        <a href="{{ paginator.next }}">Older Posts »</a>
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}
+
 {% else %}
 <p>No blog posts found.</p>
 {% endif %}
 {% endif %}
+
 {{ super() }}
 {% endblock content %}
