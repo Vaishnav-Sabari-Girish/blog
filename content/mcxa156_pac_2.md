@@ -119,7 +119,7 @@ left_caption="Red LED Blinking",
 
 right_src="frdm/day_2/green.mp4",
 right_alt="green blink",
-right_caption="Green LED Blinking"
+right_caption="Green LED Blinking",
 ) }}
 
 
@@ -130,7 +130,7 @@ left_caption="Blue LED Blinking",
 
 right_src="",
 right_alt="",
-right_caption=""
+right_caption="",
 ) }}
 
 <br>

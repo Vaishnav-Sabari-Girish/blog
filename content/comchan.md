@@ -65,7 +65,7 @@ left_caption="Basic Serial monitor",
 
 right_src="/comchan/plotter.png", 
 right_alt="Serial Plotter"
-right_caption="Serial Plotter view"
+right_caption="Serial Plotter view",
 ) }}
 
 <br>
@@ -79,7 +79,7 @@ left_caption="Braille 3D Telemetry"
 
 right_src="/comchan/tetrahedron.png",
 right_alt="Braille Tetrahedron",
-right_caption="Tetrahedron Braille"
+right_caption="Tetrahedron Braille",
 )}}
 
 
@@ -92,7 +92,7 @@ left_caption="3D Telemetry",
 
 right_src="/comchan/completions.png",
 right_alt = "Shell completions",
-right_caption="Shell completions"
+right_caption="Shell completions",
 )}}
 
 <br>
@@ -104,6 +104,6 @@ left_caption="Exported SVG output",
 
 right_src="/comchan/dark_comchan.svg",
 right_alt="Dark Mode export",
-right_caption="Dark Mode SVG export"
+right_caption="Dark Mode SVG export",
 ) }}
 
