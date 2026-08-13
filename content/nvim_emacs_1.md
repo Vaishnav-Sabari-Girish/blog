@@ -133,7 +133,7 @@ Now I wanted that to persist, so to do that I added this to my `init.el` (Full p
 
 Now, I personally do not wanna get flashbanged every time I open emacs, which I why I wanted to go for a dark theme.
 
-Most of the times themes need to be instealled from 3rd party sources.
+Most of the times themes need to be installed from 3rd party sources.
 
 Thankfully emacs has some inbuilt themes. I went with the default `modus-vivendi` dark theme
 

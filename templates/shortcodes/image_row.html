@@ -4,7 +4,7 @@
 <div {% if right_src %}class="responsive-image-grid"{% else %}class="single-media-center"{% endif %}>
   
   <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    {% if left_src is ending_with(".mp4") %}
+    {% if left_src is ending_with(pat=".mp4") %}
       <video style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" autoplay loop muted playsinline>
         <source src="{{ get_url(path=left_src) }}" type="video/mp4">
       </video>
@@ -19,7 +19,7 @@
 
   {% if right_src %}
   <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    {% if right_src is ending_with(".mp4") %}
+    {% if left_src is ending_with(pat=".mp4") %}
       <video style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" autoplay loop muted playsinline>
         <source src="{{ get_url(path=right_src) }}" type="video/mp4">
       </video>

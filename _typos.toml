@@ -2,6 +2,7 @@
 ratatui = "ratatui"
 ratatui_wireframe = "ratatui_wireframe"
 wayland = "wayland"
+WTH = "WTH"
 
 
 [files]
