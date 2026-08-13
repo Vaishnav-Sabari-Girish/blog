@@ -64,7 +64,7 @@ left_alt="Basic Serial Monitor",
 left_caption="Basic Serial monitor",
 
 right_src="/comchan/plotter.png", 
-right_alt="Serial Plotter"
+right_alt="Serial Plotter",
 right_caption="Serial Plotter view",
 ) }}
 
