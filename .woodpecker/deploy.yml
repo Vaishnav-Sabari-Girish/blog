@@ -1,4 +1,3 @@
-# Do not run on the pages branch itself
 when:
   branch:
     exclude: pages
@@ -7,19 +6,25 @@ clone:
   git:
     image: woodpeckerci/plugin-git
     settings:
-      recursive: true          # useful if you have theme submodules
+      recursive: true
 
 steps:
   - name: build
-    image: alpine:edge
+    image: ubuntu:22.04
     commands:
-      - apk add --no-cache zola
+      - apt-get update -qq
+      - apt-get install -y -qq curl tar
+      - |
+        ZOLA_VERSION="0.22.1"
+        curl -LsSf --fail "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" -o /tmp/zola.tar.gz
+        tar xzf /tmp/zola.tar.gz -C /tmp
+        install -m 755 /tmp/zola /usr/local/bin/zola
       - zola build
     when:
       - event: [push, pull_request]
 
   - name: publish
-    image: alpine/git          # or bitnami/git if you prefer
+    image: alpine/git
     environment:
       TOKEN:
         from_secret: cbtoken
