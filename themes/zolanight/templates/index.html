@@ -20,7 +20,8 @@
 {% set blog_section = get_section(path="blog/_index.md") %}
 {% if blog_section %}
 <ul>
-  {% for page in blog_section.pages | slice(end=5) %}
+  {% for page in blog_section.pages %}
+  {% if loop.index > 5 %}{% break %}{% endif %}
   <li>
     <article>
       {% if page.date %}
