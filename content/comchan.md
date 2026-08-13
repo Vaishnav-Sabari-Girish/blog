@@ -75,7 +75,7 @@ right_caption="Serial Plotter view",
 
 left_src="/comchan/braille_telemetry.png",
 left_alt="Braille Telemetry",
-left_caption="Braille 3D Telemetry"
+left_caption="Braille 3D Telemetry",
 
 right_src="/comchan/tetrahedron.png",
 right_alt="Braille Tetrahedron",
