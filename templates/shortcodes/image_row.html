@@ -1,15 +1,19 @@
+{% set left_src = left_src | default(value="") %}
+{% set right_src = right_src | default(value="") %}
 {% set cap_left = left_caption | default(value="") %}
 {% set cap_right = right_caption | default(value="") %}
+{% set left_alt = left_alt | default(value="") %}
+{% set right_alt = right_alt | default(value="") %}
 
 <div {% if right_src %}class="responsive-image-grid"{% else %}class="single-media-center"{% endif %}>
   
   <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
-    {% if left_src is defined and left_src | split(pat=".") | last == "mp4" %}
+    {% if left_src | split(pat=".") | last == "mp4" %}
       <video style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" autoplay loop muted playsinline>
         <source src="{{ get_url(path=left_src) }}" type="video/mp4">
       </video>
     {% else %}
-      <img src="{{ get_url(path=left_src) }}" alt="{{ left_alt | default(value='') }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+      <img src="{{ get_url(path=left_src) }}" alt="{{ left_alt }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
     {% endif %}
     
     {% if cap_left %}
@@ -24,7 +28,7 @@
         <source src="{{ get_url(path=right_src) }}" type="video/mp4">
       </video>
     {% else %}
-      <img src="{{ get_url(path=right_src) }}" alt="{{ right_alt | default(value='') }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+      <img src="{{ get_url(path=right_src) }}" alt="{{ right_alt }}" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
     {% endif %}
     
     {% if cap_right %}
