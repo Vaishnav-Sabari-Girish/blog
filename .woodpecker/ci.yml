@@ -5,9 +5,8 @@ when:
     # You can name the cron job in the Woodpecker UI (e.g. "weekly-links")
 steps:
   - name: build
-    image: alpine:edge
+    image: ghcr.io/getzola/zola:latest
     commands:
-      - apk add --no-cache zola
       - zola build
     when:
       - event: [push, pull_request, cron]
