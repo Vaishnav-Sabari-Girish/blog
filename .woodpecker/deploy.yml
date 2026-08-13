@@ -1,0 +1,41 @@
+# Do not run on the pages branch itself
+when:
+  branch:
+    exclude: pages
+
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      recursive: true          # useful if you have theme submodules
+
+steps:
+  - name: build
+    image: alpine:edge
+    commands:
+      - apk add --no-cache zola
+      - zola build
+    when:
+      - event: [push, pull_request]
+
+  - name: publish
+    image: alpine/git          # or bitnami/git if you prefer
+    environment:
+      TOKEN:
+        from_secret: cbtoken
+      MAIL:
+        from_secret: cbmail
+    commands:
+      - git config --global user.email "$MAIL"
+      - git config --global user.name "Woodpecker CI"
+      - git clone --branch pages https://$TOKEN@codeberg.org/$CI_REPO.git $CI_REPO_NAME || git clone https://$TOKEN@codeberg.org/$CI_REPO.git $CI_REPO_NAME
+      - cd $CI_REPO_NAME
+      - git checkout pages || git checkout -b pages
+      - git rm -rf * || true
+      - cp -ar ../public/. .
+      - git add --all
+      - git commit -m "Woodpecker CI ${CI_COMMIT_SHA} [SKIP CI]" --allow-empty
+      - git push origin pages
+    when:
+      - event: push
+        branch: main

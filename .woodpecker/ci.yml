@@ -1,0 +1,35 @@
+when:
+  - event: [push, pull_request]
+    branch: main
+  - event: cron
+    # You can name the cron job in the Woodpecker UI (e.g. "weekly-links")
+
+steps:
+  - name: build
+    image: alpine:edge
+    commands:
+      - apk add --no-cache zola
+      - zola build
+    when:
+      - event: [push, pull_request, cron]
+
+  - name: link-checker
+    image: lycheeverse/lychee:latest
+    depends_on: [build]
+    commands:
+      - lychee --max-concurrency 1 -v \
+          --exclude "linkedin.com" \
+          --exclude "nxp.com" \
+          --exclude "vaishnav-sabari-girish.github.io" \
+          public/**/*.html
+    when:
+      - event: [push, pull_request, cron]
+
+  - name: spelling-checker
+    image: alpine:edge          # or a Rust image if you prefer
+    commands:
+      - apk add --no-cache cargo
+      - cargo install typos-cli --locked
+      - typos content
+    when:
+      - event: [push, pull_request]
