@@ -47,7 +47,7 @@ Except...it was Green.
 
 <br>
 
-{{ img(src="frdm/day_2/what.gif" alt="dafuq ?") }}
+{{ img(src="frdm/day_2/what.gif" ,alt="dafuq ?") }}
 
 <br>
 
@@ -57,7 +57,7 @@ Still Green.
 
 <br>
 
-{{ img(src="frdm/day_1/wry.gif" alt="WRYYY") }}
+{{ img(src="frdm/day_1/wry.gif" ,alt="WRYYY") }}
 
 <br>
 
@@ -146,7 +146,7 @@ The compiler then proceeded to have a psychotic break at my expense.
 <br>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MHc0cnBmdGRvZ3Z3MDc0Ymhub3o0bjdma2RxYWs1YXdmcXhxN2N3MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/V7QhDCsyoVoy32el9x/giphy.gif" alt="PSYCHH">
+  <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MHc0cnBmdGRvZ3Z3MDc0Ymhub3o0bjdma2RxYWs1YXdmcXhxN2N3MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/V7QhDCsyoVoy32el9x/giphy.gif" ,alt="PSYCHH">
 </p>
 
 <br>

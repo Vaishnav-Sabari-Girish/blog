@@ -15,7 +15,7 @@ I recently got my hands on the [NXP FRDM-MCXA156](https://www.nxp.com/design/des
 
 Next, I wanted to try Embedded Rust of this board (obviously). But then I ran into a problem.
 
-{{ img(src="frdm/day_1/no_crates.png" alt="No crates found") }}
+{{ img(src="frdm/day_1/no_crates.png", alt="No crates found") }}
 
 <br>
 
@@ -37,7 +37,7 @@ If only it were that easy.
 <br>
 
 <p align="center">
-  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXBmbGJwbm1mbmxuZTNrZ2Y5dHp4czBja2tnb3c4Z2Q3Ymx4YTB4NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RN96us3MBn569GbElX/giphy.gif" alt="mindbreak">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXBmbGJwbm1mbmxuZTNrZ2Y5dHp4czBja2tnb3c4Z2Q3Ymx4YTB4NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RN96us3MBn569GbElX/giphy.gif" ,alt="mindbreak">
 </p>
 
 <br>
