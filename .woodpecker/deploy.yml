@@ -16,7 +16,7 @@ steps:
       - apt-get install -y -qq curl tar
       - |
         ZOLA_VERSION="0.22.1"
-        curl -LsSf --fail "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" -o /tmp/zola.tar.gz
+        curl -LsSf --fail "https://github.com/getzola/zola/releases/download/v$${ZOLA_VERSION}/zola-v$${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" -o /tmp/zola.tar.gz
         tar xzf /tmp/zola.tar.gz -C /tmp
         install -m 755 /tmp/zola /usr/local/bin/zola
       - zola build
