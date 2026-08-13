@@ -22,7 +22,7 @@ steps:
     image: lycheeverse/lychee:latest
     depends_on: [build]
     commands:
-      - lychee --max-concurrency 1 -v --exclude "linkedin.com" --exclude "nxp.com" --exclude "vaishnav-sabari-girish.github.io" --exclude 'vaishnav-sabari-girish.codeberg.page 'public/**/*.html'
+      - lychee --max-concurrency 1 -v --exclude "linkedin.com" --exclude "nxp.com" --exclude "vaishnav-sabari-girish.github.io" --exclude "vaishnav-sabari-girish.codeberg.page" 'public/**/*.html'
     when:
       - event: [push, pull_request, cron]
 
