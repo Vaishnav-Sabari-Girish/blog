@@ -55,12 +55,20 @@
   function render(el, comments) {
     el.textContent = comments.length ? "" : "No comments yet.";
     for (const c of comments) {
-      const d = document.createElement("div"); d.className = "comment";
-      const h = document.createElement("strong");
-      h.textContent = `${c.user.login} · ${new Date(c.created_at).toLocaleDateString()}`;
-      const p = document.createElement("p"); p.style.whiteSpace = "pre-wrap";
+      const d = document.createElement("article"); d.className = "comment";
+      const head = document.createElement("header");
+      const img = document.createElement("img");
+      img.src = c.user.avatar_url; img.alt = ""; img.width = 24; img.height = 24; img.loading = "lazy";
+      const a = document.createElement("a");
+      a.href = c.user.html_url; a.textContent = c.user.login; a.rel = "noopener";
+      const t = document.createElement("time");
+      t.dateTime = c.created_at;
+      t.textContent = new Date(c.created_at).toLocaleDateString("en-CA");
+      head.append(img, a, t);
+      const p = document.createElement("p");
       p.textContent = c.body;
-      d.append(h, p); el.append(d);
+      d.append(head, p);
+      el.append(d);
     }
   }
 

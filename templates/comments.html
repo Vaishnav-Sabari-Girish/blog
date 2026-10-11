@@ -2,12 +2,14 @@
   <h2>Comments</h2>
   <div id="comment-list">Loading…</div>
 
-  <button id="comment-login" style="display:none">Sign in with Codeberg to comment</button>
+  <button id="comment-login" class="cbtn" style="display:none">Sign in with Codeberg to comment</button>
   <form id="comment-form" style="display:none">
-    <textarea name="body" rows="4" style="width:100%" placeholder="Write a comment (markdown)…"></textarea>
-    <button type="submit">Post</button>
-    <button type="button" id="comment-logout">Sign out</button>
-    <span id="comment-status"></span>
+    <textarea name="body" rows="4" placeholder="Write a comment (markdown)…"></textarea>
+    <div class="comment-actions">
+      <button type="submit" class="cbtn primary">Post</button>
+      <button type="button" id="comment-logout" class="cbtn">Sign out</button>
+      <span id="comment-status"></span>
+    </div>
   </form>
 </section>
 

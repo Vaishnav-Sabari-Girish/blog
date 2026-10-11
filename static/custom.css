@@ -175,3 +175,78 @@ pre:hover .copy-code-button {
         width: 100%;
     }
 }
+
+/* Comments */
+#comments { margin-top: 3rem; }
+#comments h2 { margin-bottom: 1rem; }
+
+#comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.comment {
+  padding: 0.7rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-quaternary);
+  border-left: 3px solid var(--accent-1);
+  border-radius: 0 6px 6px 0;
+}
+.comment header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9em;
+}
+.comment header img { border-radius: 50%; }
+.comment header a { font-weight: bold; text-decoration: none; }
+.comment header time {
+  margin-left: auto;
+  color: var(--text-main);
+  opacity: 0.6;
+  font-size: 0.85em;
+}
+.comment p {
+  margin: 0.5rem 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#comment-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  color: var(--text-main);
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-quaternary);
+  border-radius: 6px;
+  resize: vertical;
+}
+#comment-form textarea::placeholder { color: var(--text-main); opacity: 0.45; }
+#comment-form textarea:focus { outline: none; border-color: var(--accent-1); }
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.cbtn {
+  padding: 0.35rem 0.9rem;
+  font: inherit;
+  color: var(--text-main);
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-quaternary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.cbtn:hover { background: var(--bg-tertiary); border-color: var(--accent-1); color: var(--accent-1); }
+.cbtn.primary { color: var(--bg-main); background: var(--accent-1); border-color: var(--accent-1); }
+.cbtn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--bg-main); }
+
+#comment-status { font-size: 0.85em; opacity: 0.7; }
