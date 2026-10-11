@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Signing in…</title>
+<p id="msg">Signing in…</p>
+<script>
+  window.COMMENTS = {
+    clientId: "PASTE_CLIENT_ID",
+    redirectUri: "https://blog.vaishnavs.is-a.dev/auth-callback/",
+  };
+</script>
+<script src="/comments.js"></script>
+<script>
+  CommentsApp.handleCallback().catch(e => {
+    document.getElementById("msg").textContent = "Login failed: " + e.message;
+  });
+</script>

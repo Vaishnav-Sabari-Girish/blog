@@ -17,19 +17,12 @@
   ]
   </p>
   {% endif %}
-  
+
   <div>
     {{ page.content | safe }}
   </div>
 
-  <script src="https://utteranc.es/client.js"
-          repo="Vaishnav-Sabari-Girish/blog" 
-          issue-term="url"
-          label="utterances"
-          theme="github-dark"
-          crossorigin="anonymous"
-          async>
-  </script>
+  {% include "comments.html" %}
 
 </section>
 {{ super() }}

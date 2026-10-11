@@ -1,0 +1,25 @@
+<section id="comments">
+  <h2>Comments</h2>
+  <div id="comment-list">Loading…</div>
+
+  <button id="comment-login" style="display:none">Sign in with Codeberg to comment</button>
+  <form id="comment-form" style="display:none">
+    <textarea name="body" rows="4" style="width:100%" placeholder="Write a comment (markdown)…"></textarea>
+    <button type="submit">Post</button>
+    <button type="button" id="comment-logout">Sign out</button>
+    <span id="comment-status"></span>
+  </form>
+</section>
+
+<script>
+  window.COMMENTS = {
+    clientId: "ac75120b-67e1-45be-a351-badf3fc56a21",
+    redirectUri: "https://blog.vaishnavs.is-a.dev/auth-callback/",
+    owner: "Vaishnav-Sabari-Girish",
+    repo: "blog-comments",
+    title: {{ page.path | json_encode | safe }},
+    permalink: {{ page.permalink | json_encode | safe }},
+  };
+</script>
+<script src="{{ get_url(path='comments.js') }}"></script>
+<script>CommentsApp.init();</script>
