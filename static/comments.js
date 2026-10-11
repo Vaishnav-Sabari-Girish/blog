@@ -43,7 +43,7 @@
       headers: { "Content-Type": "application/json", ...(t ? { Authorization: "Bearer " + t } : {}) },
     });
     if (r.status === 401) { setTok(null); throw new Error("Session expired, please sign in again."); }
-    if (!r.ok) throw new Error(`API ${r.status}`);
+    if (!r.ok) throw new Error(`API ${r.status} on ${opts.method || "GET"} ${path}`);
     return r.json();
   }
 
