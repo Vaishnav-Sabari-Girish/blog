@@ -15,15 +15,11 @@
     {% if section.description %}
     <meta name="description" content="{{ section.description }}">
     {% endif %}
-    {% if section.taxonomies.tags %}
-    <meta name="keywords" content="{% for tag in section.taxonomies.tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}">
-    {% endif %}
     {% endif %}
     {% if page %}<link rel="canonical" href="{{ page.permalink }}" />
     {% elif section %}<link rel="canonical" href="{{ section.permalink }}" />
     {% else %}<link rel="canonical" href="{{ config.base_url }}" />
     {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="custom.css") }}">
 

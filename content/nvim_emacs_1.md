@@ -28,21 +28,11 @@ Yes I did.
 
 So I installed Emacs and when I opened it I was greeted by this atrocity
 
-{{ image_row(
-left_src="/nvim_emacs/vanilla_emacs.png",
-left_alt="Vanilla Emacs",
-left_caption="Vanilla Emacs Starting screen"
-)
-}}
+{{ <image_row left_src="/nvim_emacs/vanilla_emacs.png" left_alt="Vanilla Emacs" left_caption="Vanilla Emacs Starting screen" /> }}
 
 <br>
 
-{{ image_row (
-left_src="/nvim_emacs/flashbang.gif",
-left_alt="Flashbang",
-left_caption=""
-)
-}}
+{{ <image_row left_src="/nvim_emacs/flashbang.gif" left_alt="Flashbang" /> }}
 
 <br>
 
@@ -92,11 +82,7 @@ Just to check to avoid future problems, I ran the command again. This time `M-x 
 
 Now it looked like this.
 
-{{image_row(
-left_src="/nvim_emacs/no_bars_1.png",
-left_alt="No Bars 1",
-left_caption="Click to open a zoomed version"
-)}}
+{{ <image_row left_src="/nvim_emacs/no_bars_1.png" left_alt="No Bars 1" left_caption="Click to open a zoomed version" /> }}
 
 <br>
 
@@ -114,11 +100,7 @@ And then `M-x eval-buffer` (This can be shortened to `M-x ev-b`)
 
 Gave me this
 
-{{image_row(
-left_src="/nvim_emacs/no_bars_2.png",
-left_alt="No Bars 2",
-left_caption="Click to open a zoomed version"
-)}}
+{{ <image_row left_src="/nvim_emacs/no_bars_2.png" left_alt="No Bars 2" left_caption="Click to open a zoomed version" /> }}
 
 
 <br>
@@ -141,12 +123,7 @@ Thankfully emacs has some inbuilt themes. I went with the default `modus-vivendi
 (load-theme 'modus-vivendi t)
 ```
 
-{{ image_row(
-left_src="/nvim_emacs/dark_1.png",
-left_alt="Dark Theme",
-left_caption="Emacs Dark theme"
-)
-}}
+{{ <image_row left_src="/nvim_emacs/dark_1.png" left_alt="Dark Theme" left_caption="Emacs Dark theme" /> }}
 
 Much better.
 
@@ -158,12 +135,7 @@ But the font could use a bit of a size increase.
                     :height 160)
 ```
 
-{{image_row(
-left_src="/nvim_emacs/font_1.png",
-left_alt="Font 1",
-left_caption="Increased font size"
-)
-}}
+{{ <image_row left_src="/nvim_emacs/font_1.png" left_alt="Font 1" left_caption="Increased font size" /> }}
 
 
 ### Terminal stuff

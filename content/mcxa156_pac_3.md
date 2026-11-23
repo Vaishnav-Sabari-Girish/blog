@@ -233,11 +233,7 @@ fn main() -> ! {
 
 <br>
 
-{{ image_row(
-left_src="frdm/day_3/button.mp4",
-left_alt="Button",
-left_caption="Button Press"
-) }}
+{{ <image_row left_src="frdm/day_3/button.mp4" left_alt="Button" left_caption="Button Press" /> }}
 
 <br>
 

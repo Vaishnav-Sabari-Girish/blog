@@ -58,47 +58,19 @@ You can click on the image to view it fully.
 
 <br>
 
-{{ image_row(
-left_src="/comchan/monitor.png", 
-left_alt="Basic Serial Monitor", 
-left_caption="Basic Serial monitor",
-right_src="/comchan/plotter.png", 
-right_alt="Serial Plotter",
-right_caption="Serial Plotter view"
-) }}
+{{ <image_row left_src="/comchan/monitor.png" left_alt="Basic Serial Monitor" left_caption="Basic Serial monitor" right_src="/comchan/plotter.png" right_alt="Serial Plotter" right_caption="Serial Plotter view" /> }}
 
 <br>
 
 
-{{ image_row(
-left_src="/comchan/braille_telemetry.png",
-left_alt="Braille Telemetry",
-left_caption="Braille 3D Telemetry",
-right_src="/comchan/tetrahedron.png",
-right_alt="Braille Tetrahedron",
-right_caption="Tetrahedron Braille"
-)}}
+{{ <image_row left_src="/comchan/braille_telemetry.png" left_alt="Braille Telemetry" left_caption="Braille 3D Telemetry" right_src="/comchan/tetrahedron.png" right_alt="Braille Tetrahedron" right_caption="Tetrahedron Braille" /> }}
 
 
 <br>
 
-{{ image_row(
-left_src="/comchan/3d_telemetry.png",
-left_alt="3D Telemetry",
-left_caption="3D Telemetry",
-right_src="/comchan/completions.png",
-right_alt = "Shell completions",
-right_caption="Shell completions"
-)}}
+{{ <image_row left_src="/comchan/3d_telemetry.png" left_alt="3D Telemetry" left_caption="3D Telemetry" right_src="/comchan/completions.png" right_alt="Shell completions" right_caption="Shell completions" /> }}
 
 <br>
 
-{{ image_row(
-left_src="/comchan/export.svg", 
-left_alt="Exported Output", 
-left_caption="Exported SVG output",
-right_src="/comchan/dark_comchan.svg",
-right_alt="Dark Mode export",
-right_caption="Dark Mode SVG export"
-) }}
+{{ <image_row left_src="/comchan/export.svg" left_alt="Exported Output" left_caption="Exported SVG output" right_src="/comchan/dark_comchan.svg" right_alt="Dark Mode export" right_caption="Dark Mode SVG export" /> }}
 

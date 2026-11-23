@@ -23,13 +23,7 @@ Well, yeah. But there was one problem. It kinda worked. But not well enough. The
 
 Well I started building my own of course. 
 
-{{
-image_row (
-left_src="/miru/tool_work.jpg",
-left_alt="Tool Work",
-left_caption="If the tool does not work, build your own"
-)
-}}
+{{ <image_row left_src="/miru/tool_work.jpg" left_alt="Tool Work" left_caption="If the tool does not work, build your own" /> }}
 
 <br>
 
@@ -45,11 +39,7 @@ I made a logo for `miru` in fully ASCII art using `durdraw` [^3] [^4]
 
 <br>
 
-{{ image_row(
-left_src="/miru/miru_logo.svg", 
-left_alt="Miru Logo", 
-left_caption="Miru Logo"
-) }}
+{{ <image_row left_src="/miru/miru_logo.svg" left_alt="Miru Logo" left_caption="Miru Logo" /> }}
 
 <br>
 
@@ -92,13 +82,7 @@ Therefore, pressing `Mod+Z` (`Mod` key is the 🪟 key) toggles `miructl` for me
 
 Here's the demo (Click on it to zoom) :
 
-{{
-image_row (
-left_src="/miru/demo.gif",
-left_alt="miru demo",
-left_caption="Miru Zooming demo"
-)
-}}
+{{ <image_row left_src="/miru/demo.gif" left_alt="miru demo" left_caption="Miru Zooming demo" /> }}
 
 <br>
 
@@ -173,13 +157,7 @@ Except there is now an overlay covering the screen .
 
 So `miru` captures ... `miru`.
 
-{{
-image_row (
-left_src="/miru/miru_capture_miru.jpg",
-left_alt="miru captures miru",
-left_caption="Miru captures Miru"
-)
-}}
+{{ <image_row left_src="/miru/miru_capture_miru.jpg" left_alt="miru captures miru" left_caption="Miru captures Miru" /> }}
 
 <br>
 

@@ -1,0 +1,23 @@
+{% component image_row(left_src, left_alt="", left_caption="", right_src="", right_alt="", right_caption="") %}
+<div class="{% if right_src %}responsive-image-grid{% else %}single-media-center{% endif %}">
+<figure>
+{% if left_src is ending_with(pat=".mp4") %}<video autoplay loop muted playsinline><source src="{{ get_url(path=left_src) }}" type="video/mp4"></video>{% else %}<img src="{{ get_url(path=left_src) }}" alt="{{ left_alt }}" class="zoomable">{% endif %}
+{% if left_caption %}<figcaption>{{ left_caption }}</figcaption>{% endif %}
+</figure>
+{% if right_src %}<figure>
+{% if right_src is ending_with(pat=".mp4") %}<video autoplay loop muted playsinline><source src="{{ get_url(path=right_src) }}" type="video/mp4"></video>{% else %}<img src="{{ get_url(path=right_src) }}" alt="{{ right_alt }}" class="zoomable">{% endif %}
+{% if right_caption %}<figcaption>{{ right_caption }}</figcaption>{% endif %}
+</figure>{% endif %}
+</div>
+{% endcomponent image_row %}
+
+{% component img(src, alt="") %}
+<img src="{{ get_url(path=src) }}" alt="{{ alt }}" class="zoomable" style="display: block; margin: 0 auto; max-width: 100%; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+{% endcomponent img %}
+
+{% component video(src, gif_mode=false) %}
+<video style="display: block; margin: 0 auto; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" {% if gif_mode %}autoplay loop muted playsinline{% else %}controls{% endif %}>
+  <source src="{{ get_url(path=src) }}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+{% endcomponent video %}

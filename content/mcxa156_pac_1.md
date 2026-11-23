@@ -15,7 +15,7 @@ I recently got my hands on the [NXP FRDM-MCXA156](https://www.nxp.com/design/des
 
 Next, I wanted to try Embedded Rust of this board (obviously). But then I ran into a problem.
 
-{{ img(src="frdm/day_1/no_crates.png", alt="No crates found") }}
+{{ <img src="frdm/day_1/no_crates.png" alt="No crates found" /> }}
 
 <br>
 
@@ -82,7 +82,7 @@ So during initial testing, `probe-rs` was throwing intermittent DAP fault errors
 
 <br>
 
-{{ img(src="frdm/day_1/debugger_table.png", alt="Debugger table") }}
+{{ <img src="frdm/day_1/debugger_table.png" alt="Debugger table" /> }}
 
 <br>
 
@@ -141,7 +141,7 @@ So, if I wanted to use `GPIO3`, I had to enable it's clock in the `GLB_CC1` regi
 
 <br>
 
-{{ img(src="frdm/day_1/wry.gif", alt="WRYYYY") }}
+{{ <img src="frdm/day_1/wry.gif" alt="WRYYYY" /> }}
 
 <br>
 
@@ -314,7 +314,7 @@ Absolutely. The PAC is always **Zero-cost safety**. Once you understand the hard
 
 # Result
 
-{{ video(src="frdm/day_1/led_blink.mp4", gif_mode=true) }}
+{{ <video src="frdm/day_1/led_blink.mp4" gif_mode={true} /> }}
 
 --- 
 <br>

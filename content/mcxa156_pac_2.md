@@ -47,7 +47,7 @@ Except...it was Green.
 
 <br>
 
-{{ img(src="frdm/day_2/what.gif" ,alt="dafuq ?") }}
+{{ <img src="frdm/day_2/what.gif" alt="dafuq ?" /> }}
 
 <br>
 
@@ -57,7 +57,7 @@ Still Green.
 
 <br>
 
-{{ img(src="frdm/day_1/wry.gif" ,alt="WRYYY") }}
+{{ <img src="frdm/day_1/wry.gif" alt="WRYYY" /> }}
 
 <br>
 
@@ -112,26 +112,10 @@ printf 'device MCXA156\nsi SWD\nspeed 1000\nconnect\nr\nh\nerase\nqc\n' | JLinkE
 
 So here are the results
 
-{{ image_row(
-left_src="frdm/day_2/red.mp4",
-left_alt="red blink",
-left_caption="Red LED Blinking",
-
-right_src="frdm/day_2/green.mp4",
-right_alt="green blink",
-right_caption="Green LED Blinking",
-) }}
+{{ <image_row left_src="frdm/day_2/red.mp4" left_alt="red blink" left_caption="Red LED Blinking" right_src="frdm/day_2/green.mp4" right_alt="green blink" right_caption="Green LED Blinking" /> }}
 
 
-{{ image_row(
-left_src="frdm/day_2/blue.mp4",
-left_alt="blue blink",
-left_caption="Blue LED Blinking",
-
-right_src="",
-right_alt="",
-right_caption="",
-) }}
+{{ <image_row left_src="frdm/day_2/blue.mp4" left_alt="blue blink" left_caption="Blue LED Blinking" /> }}
 
 <br>
 
@@ -261,7 +245,7 @@ This is the final result
 
 <br>
 
-{{ image_row(left_src="frdm/day_2/blinky.mp4", left_alt="Blinky", left_caption="Normal Blinky") }}
+{{ <image_row left_src="frdm/day_2/blinky.mp4" left_alt="Blinky" left_caption="Normal Blinky" /> }}
 
 <br>
 
@@ -359,7 +343,7 @@ This is the final result
 
 <br>
 
-{{ image_row(left_src="frdm/day_2/blinky_mix.mp4", left_alt="Blinky Mixed", left_caption="Mixed Blinky") }}
+{{ <image_row left_src="frdm/day_2/blinky_mix.mp4" left_alt="Blinky Mixed" left_caption="Mixed Blinky" /> }}
 
 <br>
 
