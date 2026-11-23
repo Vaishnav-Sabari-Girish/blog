@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-typos
+typos content
 
 zola build
+
+lychee --max-concurrency 1 -v --exclude "linkedin.com" --exclude "nxp.com" --exclude "vaishnav-sabari-girish.github.io" --exclude "vaishnav-sabari-girish.codeberg.page" --exclude "vaishnavs.is-a.dev" 'public/**/*.html'
