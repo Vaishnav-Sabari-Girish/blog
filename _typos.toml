@@ -3,7 +3,7 @@ ratatui = "ratatui"
 ratatui_wireframe = "ratatui_wireframe"
 wayland = "wayland"
 WTH = "WTH"
-
+Wht = "Wht"
 
 [files]
 extend-exclude = ["CHANGELOG.md"]
